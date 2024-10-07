@@ -1,0 +1,13 @@
+.dot {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: small;
+  border-radius: 50%;
+}
+
+.dot:hover{
+  color: #101 !important;
+  background-color: #aaa !important;
+}
+
+

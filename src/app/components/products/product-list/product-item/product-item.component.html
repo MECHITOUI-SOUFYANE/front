@@ -1,0 +1,21 @@
+<tr *ngIf="product" class="stl">
+  <td>{{product.name}}</td>
+  <td>{{product.description}}</td>
+  <td>{{product.category}}</td>
+  <td>{{product.price | currency}}</td>
+  <td>{{product.quantity}}</td>
+  <td>
+    <span class="badge rounded-pill"
+          [ngClass]="calculateClassSpan(product.inventoryStatus)"
+    >{{product.inventoryStatus | status}}</span>
+  </td>
+  <td class="text-center">
+    <button class="btn btn-sm rounded-circle"
+            [ngClass]="calculateClass(product.inventoryStatus)"
+            [disabled]="product.inventoryStatus === InventoryStatus.OUT_OF_STOCK"
+            (click)="onAddToBasket(product)"
+    >
+      <span class="fa fa-plus-circle"></span>
+    </button>
+  </td>
+</tr>

@@ -1,0 +1,43 @@
+<div class="container" *ngIf="productFormGroup">
+   <ng-container *ngIf="(state | async) as result" [ngSwitch]="result.dataState">
+     <ng-container *ngSwitchCase="DataStateEnum.SEND">
+       <app-alert [message]="result.message" [customClass]="'alert-success'"></app-alert>
+     </ng-container>
+     <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+       <app-alert [message]="result.message" [customClass]="'alert-danger'"></app-alert>
+     </ng-container>
+   </ng-container>
+  <div class="row col-12 col-md-12 col-sm-12">
+    <form class="row g-3" [formGroup]="productFormGroup" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+               formControlName="email"
+               [ngClass]="{'is-invalid': submitted && productFormGroup.controls['email'].errors}">
+        <div *ngIf="submitted && productFormGroup.controls['email'].errors" class="invalid-feedback">
+          <div *ngIf="productFormGroup.controls['email'].errors['required']">
+            L'email est obligatoire.
+          </div>
+          <div *ngIf="productFormGroup.controls['email'].errors['email']">
+            L'email n'est pas valid.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Message:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                  formControlName="message"
+                  [ngClass]="{'is-invalid': submitted && productFormGroup.controls['message'].errors}"></textarea>
+        <div *ngIf="submitted && productFormGroup.controls['message'].errors" class="invalid-feedback">
+          <div *ngIf="productFormGroup.controls['message'].errors['required']">
+            Le message est obligatoire.
+          </div>
+          <div *ngIf="productFormGroup.controls['message'].errors['maxlength']">
+            Le message dépasse la longueur maximale de 300 caractères
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-success col-6 m-auto" >Envoyer</button>
+    </form>
+  </div>
+</div>

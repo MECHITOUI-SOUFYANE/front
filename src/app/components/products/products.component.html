@@ -1,0 +1,15 @@
+<app-product-filter></app-product-filter>
+<ng-container *ngIf="(products$ | async) as result" [ngSwitch]="result.dataState">
+  <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+    <app-loading/>
+  </ng-container>
+  <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+    <app-product-list
+      [products]="result.data"
+      style="display: contents;"
+    />
+  </ng-container>
+  <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+    <app-alert [message]="result.errorMessage" [customClass]="'alert-danger'"></app-alert>
+  </ng-container>
+</ng-container>
