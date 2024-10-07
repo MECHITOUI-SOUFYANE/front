@@ -4,24 +4,29 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4000/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Front-end
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Le site de e-commerce a besoin de s'enrichir de nouvelles fonctionnalités.
 
-## Build
+### Partie 1 : Shop
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Afficher toutes les informations pertinentes d'un produit sur la liste
+- Permettre d'ajouter un produit au panier depuis la liste
+- Permettre de supprimer un produit du panier
+- Afficher un badge indiquant la quantité de produits dans le panier
+- Permettre de visualiser la liste des produits qui composent le panier.
 
-## Running unit tests
+### Partie 2
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Créer un nouveau point de menu dans la barre latérale ("Contact")
+- Créer une page "Contact" affichant un formulaire
+- Le formulaire doit permettre de saisir son email, un message et de cliquer sur "Envoyer"
+- Email et message doivent être obligatoirement remplis, message doit être inférieur à 300 caractères.
+- Quand le message a été envoyé, afficher un message à l'utilisateur : "Demande de contact envoyée avec succès".
 
-## Running end-to-end tests
+### Bonus :
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Ajouter un système de pagination et/ou de filtrage sur la liste des produits
+- On doit pouvoir visualiser et ajuster la quantité des produits depuis la liste et depuis le panier 
